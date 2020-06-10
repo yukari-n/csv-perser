@@ -10,12 +10,14 @@ object Main {
 
   //https://github.com/tototoshi/scala-csv
 
+  def replaceService: ReplaceService = new ReplaceService {}
   def sortService: SortService = new SortService {}
 
   val filePath: String = ""
 
   def main(args: Array[String]): Unit = {
-    sortService.sortBy(9, Order.DESC, readAllLine())
+    replaceService.replaceAndMakeUnique(32)
+    //sortService.sortBy(9, Order.DESC, readAllLine())
   }
 
   def readAllLine(): Seq[Seq[String]] = {
