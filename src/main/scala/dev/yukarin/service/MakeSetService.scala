@@ -3,6 +3,7 @@ package dev.yukarin.service
 import java.io.File
 import com.github.tototoshi.csv.{CSVReader, CSVWriter, TSVFormat}
 import scala.collection.mutable
+import dev.yukarin.Main.{outputFilePath, sourceFilePath}
 
 trait MakeSetService {
 
@@ -11,11 +12,8 @@ trait MakeSetService {
 
     //implicit val format = new TSVFormat {}
 
-    val filePath: String = ""
-    val reader = CSVReader.open(new File(filePath))//(format)
-
-    val output: String = ""
-    val writer = CSVWriter.open(new File(output))//(format)
+    val reader = CSVReader.open(new File(sourceFilePath))//(format)
+    val writer = CSVWriter.open(new File(outputFilePath))//(format)
 
     val columnSet: mutable.Set[Seq[String]] = mutable.Set.empty
     var count = 0

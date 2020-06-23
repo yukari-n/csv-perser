@@ -2,16 +2,14 @@ package dev.yukarin.service
 
 import java.io.File
 import com.github.tototoshi.csv.{CSVReader, CSVWriter}
+import dev.yukarin.Main.{outputFilePath, sourceFilePath}
 
 trait ReplaceService {
   def replaceAndMakeUnique(colmn: Int): Unit = {
     println("指定のカラムの値を置き換えて一意にする")
 
-    val filePath: String = ""
-    val reader = CSVReader.open(new File(filePath))
-
-    val output: String = ""
-    val writer = CSVWriter.open(new File(output))
+    val reader = CSVReader.open(new File(sourceFilePath))
+    val writer = CSVWriter.open(new File(outputFilePath))
 
     val it = reader.iterator
     var count = 0
