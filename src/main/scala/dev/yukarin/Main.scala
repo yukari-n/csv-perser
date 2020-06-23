@@ -10,13 +10,15 @@ object Main {
 
   //https://github.com/tototoshi/scala-csv
 
+  def makeSetService: MakeSetService = new MakeSetService {}
   def replaceService: ReplaceService = new ReplaceService {}
   def sortService: SortService = new SortService {}
 
   val filePath: String = ""
 
   def main(args: Array[String]): Unit = {
-    replaceService.replaceAndMakeUnique(32)
+    makeSetService.makeAndCountSet(Set(2))
+    //replaceService.replaceAndMakeUnique(32)
     //sortService.sortBy(9, Order.DESC, readAllLine())
   }
 
