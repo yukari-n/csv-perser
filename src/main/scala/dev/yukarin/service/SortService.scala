@@ -3,6 +3,7 @@ package dev.yukarin.service
 import java.io.File
 import com.github.tototoshi.csv.CSVWriter
 import dev.yukarin.entity.Order
+import dev.yukarin.Main.outputFilePath
 
 trait SortService {
   def sortBy(colmn: Int, order: Order, data: Seq[Seq[String]]): Unit = {
@@ -11,10 +12,9 @@ trait SortService {
       case Order.ASC => data.sortBy(_(colmn))
       case Order.DESC => data.sortBy(_(colmn))(Ordering[String].reverse)
     }
-    val filePath = ""
-    val writer = CSVWriter.open(new File(filePath))
+    val writer = CSVWriter.open(new File(outputFilePath))
     writer.writeAll(sorted)
     writer.close()
-    println("ソート完了。出力ファイル: " + filePath)
+    println("ソート完了。出力ファイル: " + outputFilePath)
   }
 }
