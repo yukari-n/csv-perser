@@ -13,13 +13,15 @@ object Main {
   def countService: CountService = new CountService {}
   def makeSetService: MakeSetService = new MakeSetService {}
   def replaceService: ReplaceService = new ReplaceService {}
+  def separateService: SeparateService = new SeparateService {}
   def sortService: SortService = new SortService {}
 
   val sourceFilePath: String = ""
   val outputFilePath: String = ""
 
   def main(args: Array[String]): Unit = {
-    countService.countByID(5)
+    separateService.extract(Map())
+    //countService.countByID(5)
     //makeSetService.makeAndCountSet(Set(2))
     //replaceService.replaceAndMakeUnique(32)
     //sortService.sortBy(9, Order.DESC, readAllLine())
